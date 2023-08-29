@@ -7,7 +7,6 @@ public class EmployeeRequest implements Serializable {
     public String name;
     public String city;
 
-
     public String getName(){
         return this.name;
     }

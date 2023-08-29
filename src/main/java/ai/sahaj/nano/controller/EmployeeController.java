@@ -53,7 +53,6 @@ public class EmployeeController{
             req = map.get(str);
             ans.add(new Employee(str, req.name, req.city));
         }
-
         return HttpResponse.ok(ans);
     }
 
@@ -81,7 +80,11 @@ public class EmployeeController{
     }
 
     public String generateEmpId(){
-        return String.valueOf(this.id++);
+        int id = (int) (Math.random() * (10000000 - 1 + 1)) + 1;
+        while(map.containsKey(String.valueOf(id))){
+            id += 1;
+        }
+        return String.valueOf(id);
     }
 
     public void saveMapToFile(String filename) {
